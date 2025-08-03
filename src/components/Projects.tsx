@@ -37,12 +37,12 @@ export default function Projects() {
 
   const getProjectImage = (projectId: string) => {
     const imageMap: { [key: string]: string } = {
-      'nallijaku': '/NALKU.png',
-      'soundofmemory': '/SOM.png',
-      'unimeet': '/UNIMEET.png',
-      'react-todo': '/TODO.png',
-      'youtube-api': '/Youtube.png',
-      'drone-space': '/DroneSpace.png'
+      'nallijaku': '/NALKU.jpg',
+      'soundofmemory': '/SOM.jpg',
+      'unimeet': '/UNIMEET.jpg',
+      'react-todo': '/TODO.jpg',
+      'youtube-api': '/Youtube.jpg',
+      'drone-space': '/DroneSpace.jpg'
     };
     return imageMap[projectId] || '/file.svg';
   };

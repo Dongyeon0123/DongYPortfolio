@@ -159,12 +159,13 @@ export default function About() {
             </div>
             <motion.div
               className="absolute -bottom-4 -right-4 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold"
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
+              initial={{ opacity: 0, y: 20, scale: 0.8 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.8, type: 'spring', stiffness: 80, damping: 10 }}
               viewport={{ once: true }}
+              style={{ color: '#23272f' }} // 진한 회색
             >
-              Frontend Developer
+              <span className="font-bold text-gray-800 dark:text-white">Frontend Developer</span>
             </motion.div>
           </motion.div>
 

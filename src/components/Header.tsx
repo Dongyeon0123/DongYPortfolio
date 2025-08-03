@@ -56,7 +56,7 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-600/50 shadow-lg"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.22, ease: "easeInOut" }}
     >
       {/* 스크롤 진행률 바 */}
       <motion.div
@@ -90,12 +90,10 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <motion.div 
             className="text-xl font-bold text-gray-900 dark:text-gray-100 cursor-pointer relative group"
-            whileHover={{ 
-              scale: 1.05,
-            }}
+            whileHover={{ scale: 1.07 }}
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut", type: "spring", stiffness: 400, damping: 10 }}
+            transition={{ duration: 0.18, delay: 0.1, ease: "easeInOut" }}
             onClick={() => {
               window.scrollTo({
                 top: 0,
@@ -126,8 +124,8 @@ export default function Header() {
                 className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-300 transition-colors relative group font-medium px-3 py-2 rounded-lg cursor-pointer"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -3, scale: 1.05 }}
-                transition={{ duration: 0.3, delay: 0.2 + index * 0.05, ease: "easeOut" }}
+                whileHover={{ y: -3, scale: 1.07 }}
+                transition={{ duration: 0.18, delay: 0.12 + index * 0.04, ease: "easeInOut" }}
                 onClick={(e) => {
                   e.preventDefault();
                   const targetId = item.href.substring(1); // '#' 제거
@@ -163,16 +161,12 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <motion.button
               onClick={toggleTheme}
-              whileHover={{ 
-                scale: 1.15,
-                rotate: 180,
-                y: -3
-              }}
+              whileHover={{ scale: 1.15, rotate: 180, y: -3 }}
               whileTap={{ scale: 0.95 }}
               className="p-2 text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-300 transition-colors relative group rounded-lg"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.18, delay: 0.18, ease: "easeInOut" }}
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               <motion.div
@@ -188,16 +182,12 @@ export default function Header() {
             </motion.button>
             <motion.a
               href="mailto:ldy1951123@gmail.com"
-              whileHover={{ 
-                scale: 1.15,
-                rotate: 5,
-                y: -3
-              }}
+              whileHover={{ scale: 1.15, rotate: 5, y: -3 }}
               whileTap={{ scale: 0.95 }}
               className="p-2 text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-300 transition-colors relative group rounded-lg"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.35, ease: "easeOut" }}
+              transition={{ duration: 0.18, delay: 0.20, ease: "easeInOut" }}
             >
               <Mail size={20} />
               <motion.div
@@ -215,16 +205,12 @@ export default function Header() {
               href="https://github.com/Dongyeon0123"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ 
-                scale: 1.15,
-                rotate: -5,
-                y: -3
-              }}
+              whileHover={{ scale: 1.15, rotate: -5, y: -3 }}
               whileTap={{ scale: 0.95 }}
               className="p-2 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-colors relative group rounded-lg"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.18, delay: 0.22, ease: "easeInOut" }}
             >
               <Github size={20} />
               <motion.div
@@ -242,16 +228,12 @@ export default function Header() {
               href="https://www.instagram.com/dong.y____"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ 
-                scale: 1.15,
-                rotate: 5,
-                y: -3
-              }}
+              whileHover={{ scale: 1.15, rotate: 5, y: -3 }}
               whileTap={{ scale: 0.95 }}
               className="p-2 text-gray-700 dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-300 transition-colors relative group rounded-lg"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.45, ease: "easeOut" }}
+              transition={{ duration: 0.18, delay: 0.24, ease: "easeInOut" }}
             >
               <Instagram size={20} />
               <motion.div
