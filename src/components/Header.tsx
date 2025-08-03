@@ -143,9 +143,13 @@ export default function Header() {
                   const targetId = item.href.substring(1); // '#' 제거
                   const targetElement = document.getElementById(targetId);
                   if (targetElement) {
-                    targetElement.scrollIntoView({
-                      behavior: 'smooth',
-                      block: 'start'
+                    // 헤더 높이만큼 오프셋을 추가하여 정확한 위치로 스크롤
+                    const headerHeight = 64; // h-16 = 64px
+                    const elementPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                      top: elementPosition,
+                      behavior: 'smooth'
                     });
                   }
                 }}
