@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Code, Palette, Smartphone } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState, useMemo } from 'react';
+import FloatingBackground from './FloatingBackground';
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -60,7 +61,7 @@ export default function Hero() {
 
   if (!mounted) {
     return (
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="mb-8 flex justify-center">
             <div className="relative w-32 h-32 lg:w-40 lg:h-40">
@@ -73,14 +74,14 @@ export default function Hero() {
               />
             </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             안녕하세요!{' '}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Frontend Developer
             </span>{' '}
             DongY입니다
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
             사용자 경험을 중심으로 한 웹 애플리케이션 개발에 열정을 가진<br />
             프론트엔드 개발자입니다. 깔끔하고 직관적인 인터페이스를 만드는 것을 좋아합니다.
           </p>
@@ -90,77 +91,8 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black relative overflow-hidden">
-      {/* 떠다니는 동그란 애니메이션 요소들 - 성능 최적화 */}
-      <motion.div
-        className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-lg"
-        animate={{
-          x: [0, 100, 0],
-          y: [0, -50, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full blur-lg"
-        animate={{
-          x: [0, -80, 0],
-          y: [0, 60, 0],
-          scale: [1, 0.8, 1],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }}
-      />
-      <motion.div
-        className="absolute bottom-40 left-1/4 w-20 h-20 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-lg"
-        animate={{
-          x: [0, 60, 0],
-          y: [0, -40, 0],
-          scale: [1, 1.3, 1],
-        }}
-        transition={{
-          duration: 7,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full blur-lg"
-        animate={{
-          x: [0, -40, 0],
-          y: [0, 80, 0],
-          scale: [1, 0.9, 1],
-        }}
-        transition={{
-          duration: 9,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 3
-        }}
-      />
-      <motion.div
-        className="absolute top-1/2 left-1/2 w-16 h-16 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-lg"
-        animate={{
-          x: [0, 120, 0],
-          y: [0, -100, 0],
-          scale: [1, 1.4, 1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 4
-        }}
-      />
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+      <FloatingBackground />
       
       {/* 배경 애니메이션 요소들 */}
       <motion.div
@@ -261,7 +193,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.h1 
-            className="text-4xl md:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6"
             variants={itemVariants}
           >
             안녕하세요!{' '}
@@ -272,7 +204,7 @@ export default function Hero() {
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
             사용자 경험을 중심으로 한 웹 애플리케이션 개발에 열정을 가진<br />
@@ -284,28 +216,28 @@ export default function Hero() {
             variants={itemVariants}
           >
             <motion.div 
-              className="flex items-center space-x-2 bg-gray-800/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-700"
+              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
               whileHover={{ y: -5, scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               <Code className="w-5 h-5 text-blue-400" />
-              <span className="text-gray-200">React & Next.js</span>
+              <span className="text-gray-700 dark:text-gray-200">React & Next.js</span>
             </motion.div>
             <motion.div 
-              className="flex items-center space-x-2 bg-gray-800/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-700"
+              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
               whileHover={{ y: -5, scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               <Palette className="w-5 h-5 text-purple-400" />
-              <span className="text-gray-200">UI/UX Design</span>
+              <span className="text-gray-700 dark:text-gray-200">UI/UX Design</span>
             </motion.div>
             <motion.div 
-              className="flex items-center space-x-2 bg-gray-800/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-700"
+              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
               whileHover={{ y: -5, scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               <Smartphone className="w-5 h-5 text-green-400" />
-              <span className="text-gray-200">Mobile Development</span>
+              <span className="text-gray-700 dark:text-gray-200">Mobile Development</span>
             </motion.div>
           </motion.div>
           

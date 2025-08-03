@@ -250,8 +250,8 @@ export default function About() {
               개발 철학
             </h3>
             <p className="text-lg leading-relaxed max-w-4xl mx-auto">
-              &quot;"사용자 경험을 최우선으로 생각하며, 깔끔하고 유지보수하기 쉬운 코드를 작성하는 것이 저의 목표입니다. 
-              새로운 기술을 배우는 것을 즐기며, 항상 더 나은 솔루션을 찾기 위해 노력합니다."&quot;
+              &quot;사용자 경험을 최우선으로 생각하며, 깔끔하고 유지보수하기 쉬운 코드를 작성하는 것이 저의 목표입니다. 
+              새로운 기술을 배우는 것을 즐기며, 항상 더 나은 솔루션을 찾기 위해 노력합니다.&quot;
             </p>
           </motion.div>
         </motion.div>

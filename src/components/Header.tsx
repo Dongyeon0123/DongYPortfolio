@@ -53,7 +53,7 @@ export default function Header() {
 
   return (
     <motion.header 
-      className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-700/50 shadow-lg"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-600/50 shadow-lg"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -89,7 +89,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <motion.div 
-            className="text-xl font-bold text-white cursor-pointer relative group"
+            className="text-xl font-bold text-gray-900 dark:text-gray-100 cursor-pointer relative group"
             whileHover={{ 
               scale: 1.05,
             }}
@@ -123,11 +123,11 @@ export default function Header() {
               <motion.a
                 key={item.href}
                 href={item.href}
-                className="text-gray-300 hover:text-blue-400 transition-colors relative group font-medium px-3 py-2 rounded-lg cursor-pointer"
+                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-300 transition-colors relative group font-medium px-3 py-2 rounded-lg cursor-pointer"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -3, scale: 1.05 }}
-                transition={{ duration: 0.6, delay: 0.5 + index * 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.3, delay: 0.2 + index * 0.05, ease: "easeOut" }}
                 onClick={(e) => {
                   e.preventDefault();
                   const targetId = item.href.substring(1); // '#' 제거
@@ -169,10 +169,10 @@ export default function Header() {
                 y: -3
               }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-gray-300 hover:text-yellow-400 transition-colors relative group rounded-lg"
+              className="p-2 text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-300 transition-colors relative group rounded-lg"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               <motion.div
@@ -194,10 +194,10 @@ export default function Header() {
                 y: -3
               }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-gray-300 hover:text-red-400 transition-colors relative group rounded-lg"
+              className="p-2 text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-300 transition-colors relative group rounded-lg"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.35, ease: "easeOut" }}
             >
               <Mail size={20} />
               <motion.div
@@ -221,10 +221,10 @@ export default function Header() {
                 y: -3
               }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-gray-300 hover:text-white transition-colors relative group rounded-lg"
+              className="p-2 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-colors relative group rounded-lg"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
             >
               <Github size={20} />
               <motion.div
@@ -248,10 +248,10 @@ export default function Header() {
                 y: -3
               }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-gray-300 hover:text-pink-400 transition-colors relative group rounded-lg"
+              className="p-2 text-gray-700 dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-300 transition-colors relative group rounded-lg"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.45, ease: "easeOut" }}
             >
               <Instagram size={20} />
               <motion.div
