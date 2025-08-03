@@ -127,11 +127,22 @@ export default function Header() {
               <motion.a
                 key={item.href}
                 href={item.href}
-                className="text-gray-300 hover:text-blue-400 transition-colors relative group font-medium px-3 py-2 rounded-lg"
+                className="text-gray-300 hover:text-blue-400 transition-colors relative group font-medium px-3 py-2 rounded-lg cursor-pointer"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -3, scale: 1.05 }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1, ease: "easeOut" }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const targetId = item.href.substring(1); // '#' 제거
+                  const targetElement = document.getElementById(targetId);
+                  if (targetElement) {
+                    targetElement.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }
+                }}
               >
                 {item.label}
                 <motion.div

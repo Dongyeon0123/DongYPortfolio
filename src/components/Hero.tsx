@@ -315,6 +315,16 @@ export default function Hero() {
               className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl border border-blue-500/30"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                e.preventDefault();
+                const targetElement = document.getElementById('about');
+                if (targetElement) {
+                  targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
             >
               <span>더 알아보기</span>
               <ArrowDown className="w-5 h-5" />
