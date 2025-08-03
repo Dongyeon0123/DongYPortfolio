@@ -1,4 +1,4 @@
-'use client';
+'use client'; //
 
 import { motion } from 'framer-motion';
 import { CheckCircle, Code, Database, Smartphone, Palette, Zap } from 'lucide-react';

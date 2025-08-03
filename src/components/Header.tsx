@@ -1,4 +1,4 @@
-'use client';
+'use client'; // 
 
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Mail, Github, Instagram, Sun, Moon } from 'lucide-react';

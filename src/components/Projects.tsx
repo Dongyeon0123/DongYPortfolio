@@ -1,4 +1,4 @@
-'use client';
+'use client'; //
 
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Calendar, Code, Image as ImageIcon } from 'lucide-react';

@@ -1,4 +1,4 @@
-'use client';
+'use client'; //
 
 import { motion } from 'framer-motion';
 import { ArrowDown, Code, Palette, Smartphone } from 'lucide-react';
