@@ -58,12 +58,12 @@ html, body {
 
 /* 다크모드 스타일 */
 .dark {
-  --background: #0f0f23;
+  --background: #0a0a1a;
   --foreground: #ededed;
   --text-color: #f3f4f6; /* 다크모드: 밝은 회색 */
-  --hero-bg: #0f0f23; /* 다크모드: 어두운 보라색 배경 */
-  --hero-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); /* 다크모드: 보라+남색 그라데이션 */
-  --header-bg: rgba(15, 23, 42, 0.95); /* 다크모드: 반투명 어두운 남색 */
+  --hero-bg: #0a0a1a; /* 다크모드: 어두운 보라색 배경 */
+  --hero-gradient: linear-gradient(135deg, #0f0f23 0%, #16213e 50%, #0f3460 100%); /* 다크모드: 보라+남색 그라데이션 */
+  --header-bg: rgba(10, 15, 30, 0.95); /* 다크모드: 반투명 어두운 남색 */
   --header-border: rgba(59, 130, 246, 0.5); /* 다크모드: 남색 테두리 */
 }
 
