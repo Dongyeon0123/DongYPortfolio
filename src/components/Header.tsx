@@ -106,10 +106,31 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.18, delay: 0.1, ease: "easeInOut" }}
             onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-              });
+              // 순수 JavaScript로 부드러운 스크롤 구현
+              const smoothScroll = (targetPosition: number, duration: number = 800) => {
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                let startTime: number | null = null;
+                
+                const animation = (currentTime: number) => {
+                  if (startTime === null) startTime = currentTime;
+                  const timeElapsed = currentTime - startTime;
+                  const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+                  window.scrollTo(0, run);
+                  if (timeElapsed < duration) requestAnimationFrame(animation);
+                };
+                
+                const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
+                  t /= d / 2;
+                  if (t < 1) return c / 2 * t * t * t + b;
+                  t -= 2;
+                  return c / 2 * (t * t * t + 2) + b;
+                };
+                
+                requestAnimationFrame(animation);
+              };
+              
+              smoothScroll(0);
             }}
           >
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
