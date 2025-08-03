@@ -49,7 +49,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="pt-32 pb-20 bg-gradient-to-br from-gray-900 via-purple-900/20 to-blue-900/20 relative overflow-hidden">
+    <section id="about" className="pt-32 pb-20 bg-gradient-to-br from-gray-100 via-white to-gray-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20 relative overflow-hidden">
       {/* 떠다니는 동그란 애니메이션 요소들 */}
       <motion.div
         className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-r from-pink-500/15 to-purple-500/15 rounded-full blur-xl"
@@ -115,10 +115,10 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
             About Me
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-800 dark:text-gray-300 max-w-3xl mx-auto">
             프론트엔드 개발자로서 사용자 중심의 웹 애플리케이션을 개발하고 있습니다.
           </p>
         </motion.div>
@@ -175,30 +175,30 @@ export default function About() {
             viewport={{ once: true }}
             className="flex-1 text-left"
           >
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
               안녕하세요! 👋
             </h3>
-            <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+            <p className="text-lg text-gray-800 dark:text-gray-300 mb-6 leading-relaxed">
               Next.js와 React를 기반으로 사용자 경험 중심의 웹 애플리케이션을 개발하는 프론트엔드 개발자입니다.
               구조화된 컴포넌트 설계, 반응형 UI, 인터랙션 구현에 강점을 가지고 있으며,
               재사용성과 유지보수성을 고려한 클린 코드를 지향합니다.
             </p>
             <div className="grid grid-cols-2 gap-4">
               <motion.div 
-                className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 p-4 rounded-lg border border-blue-500/30 backdrop-blur-sm"
+                className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 dark:from-blue-600/20 dark:to-purple-600/20 p-4 rounded-lg border border-blue-500/30 dark:border-blue-500/30 backdrop-blur-sm"
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <h4 className="font-semibold text-blue-400 mb-2">기술 스택</h4>
-                <p className="text-sm text-gray-300">React, Next.js, TypeScript, Redux</p>
+                <h4 className="font-semibold text-blue-700 dark:text-blue-400 mb-2">기술 스택</h4>
+                <p className="text-sm text-gray-800 dark:text-gray-300">React, Next.js, TypeScript, Redux</p>
               </motion.div>
               <motion.div 
-                className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 p-4 rounded-lg border border-purple-500/30 backdrop-blur-sm"
+                className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 p-4 rounded-lg border border-purple-500/30 dark:border-purple-500/30 backdrop-blur-sm"
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <h4 className="font-semibold text-purple-400 mb-2">관심 분야</h4>
-                <p className="text-sm text-gray-300">UI/UX, 애니메이션, 모바일 개발</p>
+                <h4 className="font-semibold text-purple-700 dark:text-purple-400 mb-2">관심 분야</h4>
+                <p className="text-sm text-gray-800 dark:text-gray-300">UI/UX, 애니메이션, 모바일 개발</p>
               </motion.div>
             </div>
           </motion.div>
@@ -213,7 +213,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className={`bg-gradient-to-br ${feature.bgGradient} backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border ${feature.borderColor}`}
+              className={`bg-gradient-to-br ${feature.bgGradient} dark:${feature.bgGradient} backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border ${feature.borderColor} dark:${feature.borderColor}`}
             >
               <div className="flex items-center space-x-3 mb-4">
                 <motion.div 
@@ -223,11 +223,11 @@ export default function About() {
                 >
                   {feature.icon}
                 </motion.div>
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
                   {feature.title}
                 </h3>
               </div>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-gray-800 dark:text-gray-300 leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
@@ -249,7 +249,7 @@ export default function About() {
             <h3 className="text-2xl font-bold mb-4">
               개발 철학
             </h3>
-            <p className="text-lg leading-relaxed max-w-4xl mx-auto">
+            <p className="text-lg leading-relaxed max-w-4xl mx-auto text-gray-800 dark:text-gray-300">
               &quot;사용자 경험을 최우선으로 생각하며, 깔끔하고 유지보수하기 쉬운 코드를 작성하는 것이 저의 목표입니다. 
               새로운 기술을 배우는 것을 즐기며, 항상 더 나은 솔루션을 찾기 위해 노력합니다.&quot;
             </p>
