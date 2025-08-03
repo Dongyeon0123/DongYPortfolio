@@ -9,37 +9,37 @@ export default function Skills() {
       title: 'Main Skill Stack',
       category: 'frontend' as const,
       color: 'from-blue-500 to-cyan-500',
-      bgColor: 'bg-gradient-to-br from-blue-900/30 to-cyan-900/30',
-      borderColor: 'border-blue-500/30',
-      cardBg: 'from-blue-700/50 to-blue-600/50',
-      cardBorder: 'border-blue-600/50'
+      bgColor: 'bg-gradient-to-br from-blue-50/80 to-cyan-50/80 dark:from-blue-900/30 dark:to-cyan-900/30',
+      borderColor: 'border-blue-200/50 dark:border-blue-500/30',
+      cardBg: 'from-blue-100/60 to-blue-50/60 dark:from-blue-700/50 dark:to-blue-600/50',
+      cardBorder: 'border-blue-200/50 dark:border-blue-600/50'
     },
     {
       title: 'Mobile Development',
       category: 'mobile' as const,
       color: 'from-purple-500 to-pink-500',
-      bgColor: 'bg-gradient-to-br from-purple-900/30 to-pink-900/30',
-      borderColor: 'border-purple-500/30',
-      cardBg: 'from-purple-700/50 to-purple-600/50',
-      cardBorder: 'border-purple-600/50'
+      bgColor: 'bg-gradient-to-br from-purple-50/80 to-pink-50/80 dark:from-purple-900/30 dark:to-pink-900/30',
+      borderColor: 'border-purple-200/50 dark:border-purple-500/30',
+      cardBg: 'from-purple-100/60 to-purple-50/60 dark:from-purple-700/50 dark:to-purple-600/50',
+      cardBorder: 'border-purple-200/50 dark:border-purple-600/50'
     },
     {
       title: 'Tools & Collaboration',
       category: 'tools' as const,
       color: 'from-green-500 to-emerald-500',
-      bgColor: 'bg-gradient-to-br from-green-900/30 to-emerald-900/30',
-      borderColor: 'border-green-500/30',
-      cardBg: 'from-green-700/50 to-green-600/50',
-      cardBorder: 'border-green-600/50'
+      bgColor: 'bg-gradient-to-br from-green-50/80 to-emerald-50/80 dark:from-green-900/30 dark:to-emerald-900/30',
+      borderColor: 'border-green-200/50 dark:border-green-500/30',
+      cardBg: 'from-green-100/60 to-green-50/60 dark:from-green-700/50 dark:to-green-600/50',
+      cardBorder: 'border-green-200/50 dark:border-green-600/50'
     },
     {
       title: '학습 & 경험 기술',
       category: 'learning' as const,
       color: 'from-orange-500 to-red-500',
-      bgColor: 'bg-gradient-to-br from-orange-900/30 to-red-900/30',
-      borderColor: 'border-orange-500/30',
-      cardBg: 'from-orange-700/50 to-orange-600/50',
-      cardBorder: 'border-orange-600/50'
+      bgColor: 'bg-gradient-to-br from-orange-50/80 to-red-50/80 dark:from-orange-900/30 dark:to-red-900/30',
+      borderColor: 'border-orange-200/50 dark:border-orange-500/30',
+      cardBg: 'from-orange-100/60 to-orange-50/60 dark:from-orange-700/50 dark:to-orange-600/50',
+      cardBorder: 'border-orange-200/50 dark:border-orange-600/50'
     }
   ];
 
@@ -75,7 +75,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-gray-800 via-purple-900/30 to-blue-900/30">
+    <section id="skills" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-800 dark:via-purple-900/30 dark:to-blue-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,10 +84,10 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
             Main Skill Stack
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             다양한 기술 스택을 활용하여 사용자 중심의 웹 애플리케이션을 개발합니다.
           </p>
         </motion.div>
@@ -102,7 +102,7 @@ export default function Skills() {
             className={`mb-12 p-8 rounded-2xl backdrop-blur-sm border ${category.bgColor} ${category.borderColor}`}
           >
             <motion.h3 
-              className="text-2xl font-bold text-white mb-6 text-center"
+              className="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.2 + 0.2 }}
@@ -140,7 +140,7 @@ export default function Skills() {
                       {skill.name.charAt(0)}
                     </motion.div>
                     <motion.p 
-                      className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors duration-500 ease-out"
+                      className="text-sm font-medium text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-500 ease-out"
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
                     >
@@ -165,7 +165,7 @@ export default function Skills() {
           className="text-center mt-16"
         >
           <motion.div 
-            className="bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white p-8 rounded-2xl shadow-xl border border-pink-500/30"
+            className="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 dark:from-pink-600 dark:via-purple-600 dark:to-blue-600 text-gray-800 dark:text-white p-8 rounded-2xl shadow-xl border border-pink-200/50 dark:border-pink-500/30"
             whileHover={{ scale: 1.02, y: -5 }}
             transition={{ duration: 0.2 }}
           >

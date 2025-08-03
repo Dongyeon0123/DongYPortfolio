@@ -49,7 +49,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="pt-32 pb-20 bg-gradient-to-br from-gray-100 via-white to-gray-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20 relative overflow-hidden">
+    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20">
       {/* 떠다니는 동그란 애니메이션 요소들 */}
       <motion.div
         className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-r from-pink-500/15 to-purple-500/15 rounded-full blur-xl"
@@ -107,11 +107,11 @@ export default function About() {
         }}
       />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >

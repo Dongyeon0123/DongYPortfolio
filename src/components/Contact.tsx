@@ -40,19 +40,19 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-pink-900/20 to-purple-900/20">
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 via-purple-50/30 to-blue-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
             Contact
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             궁금한 점이나 협업 제안이 있으시면 언제든 연락해주세요.
           </p>
         </motion.div>
@@ -115,7 +115,7 @@ export default function Contact() {
               함께 일하고 싶은 개발자
             </h3>
             <p className="text-lg leading-relaxed max-w-4xl mx-auto mb-6">
-              사용자 경험을 최우선으로 생각하며, 깔끔하고 유지보수하기 쉬운 코드를 작성하는 프론트엔드 개발자입니다. 
+              사용자 경험을 최우선으로 생각하며, 깔끔하고 유지보수하기 쉬운 코드를 작성하는 프론트엔드 개발자입니다.<br></br>
               새로운 기술을 배우는 것을 즐기며, 항상 더 나은 솔루션을 찾기 위해 노력합니다.
             </p>
             <div className="grid md:grid-cols-3 gap-6 text-left">
