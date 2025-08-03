@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --text-color: #1f2937; /* 화이트모드: 진한 회색 */
+  --hero-bg: #ffffff; /* 화이트모드: 흰색 배경 */
+  --hero-gradient: linear-gradient(to bottom right, #f3f4f6, #ffffff, #f9fafb); /* 화이트모드: 밝은 그라데이션 */
 }
 
 @theme inline {
@@ -40,11 +43,17 @@ html, body {
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
+  --text-color: #f3f4f6; /* 다크모드: 밝은 회색 */
+  --hero-bg: #0a0a0a; /* 다크모드: 어두운 배경 */
+  --hero-gradient: linear-gradient(to bottom right, #0f172a, #1e293b, #334155); /* 다크모드: 어두운 그라데이션 */
 }
 
 .light {
   --background: #ffffff;
   --foreground: #171717;
+  --text-color: #1f2937; /* 화이트모드: 진한 회색 */
+  --hero-bg: #ffffff; /* 화이트모드: 흰색 배경 */
+  --hero-gradient: linear-gradient(to bottom right, #f3f4f6, #ffffff, #f9fafb); /* 화이트모드: 밝은 그라데이션 */
 }
 
 /* 다크모드 전환 애니메이션 */

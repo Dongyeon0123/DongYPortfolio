@@ -61,7 +61,13 @@ export default function Hero() {
 
   if (!mounted) {
     return (
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+      <section 
+        className="min-h-screen flex items-center justify-center relative overflow-hidden"
+        style={{ 
+          background: 'var(--hero-bg)',
+          backgroundImage: 'var(--hero-gradient)'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="mb-8 flex justify-center">
             <div className="relative w-32 h-32 lg:w-40 lg:h-40">
@@ -74,16 +80,17 @@ export default function Hero() {
               />
             </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: 'var(--text-color)' }}>
             안녕하세요!{' '}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Frontend Developer
             </span>{' '}
             DongY입니다
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            사용자 경험을 중심으로 한 웹 애플리케이션 개발에 열정을 가진<br />
-            프론트엔드 개발자입니다. 깔끔하고 직관적인 인터페이스를 만드는 것을 좋아합니다.
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-color)' }}>
+            사용자 경험을 중심으로 한 웹 애플리케이션 개발에 열정을 가진
+            프론트엔드 개발자입니다.<br />
+            깔끔하고 직관적인 인터페이스를 만드는 것을 좋아합니다.
           </p>
         </div>
       </section>
@@ -91,7 +98,13 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section 
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      style={{ 
+        background: 'var(--hero-bg)',
+        backgroundImage: 'var(--hero-gradient)'
+      }}
+    >
       <FloatingBackground />
       
       {/* 배경 애니메이션 요소들 */}
@@ -164,14 +177,26 @@ export default function Hero() {
                       y: Math.sin(angle) * radius,
                     }}
                     animate={{
-                      x: Math.cos(angle) * radius,
-                      y: Math.sin(angle) * radius,
+                      x: [
+                        Math.cos(angle) * radius - 10,
+                        Math.cos(angle) * radius + 10,
+                        Math.cos(angle) * radius - 5,
+                        Math.cos(angle) * radius + 5,
+                        Math.cos(angle) * radius - 10,
+                      ],
+                      y: [
+                        Math.sin(angle) * radius - 8,
+                        Math.sin(angle) * radius + 8,
+                        Math.sin(angle) * radius - 3,
+                        Math.sin(angle) * radius + 3,
+                        Math.sin(angle) * radius - 8,
+                      ],
                       rotate: [0, 360],
                     }}
                     transition={{
-                      duration: 10,
+                      duration: 8 + index * 1,
                       repeat: Infinity,
-                      ease: "linear",
+                      ease: "easeInOut",
                       delay: iconData.delay,
                     }}
                   >
@@ -192,52 +217,46 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          <motion.h1 
-            className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6"
-            variants={itemVariants}
-          >
+          <h1 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: 'var(--text-color)' }}>
             안녕하세요!{' '}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-pulse">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Frontend Developer
             </span>{' '}
             DongY입니다
-          </motion.h1>
-          
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
-            variants={itemVariants}
-          >
-            사용자 경험을 중심으로 한 웹 애플리케이션 개발에 열정을 가진<br />
-            프론트엔드 개발자입니다. 깔끔하고 직관적인 인터페이스를 만드는 것을 좋아합니다.
-          </motion.p>
+          </h1>
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-color)' }}>
+            사용자 경험을 중심으로 한 웹 애플리케이션 개발에<br></br>많은 열정을 가지고있는
+            주니어 프론트엔드 개발자입니다 !<br></br><br></br>
+            깔끔하고 직관적인 인터페이스를 만드는 것을 좋아합니다.
+          </p>
           
           <motion.div 
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap justify-center gap-3 mb-10"
             variants={itemVariants}
           >
             <motion.div 
-              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
-              whileHover={{ y: -5, scale: 1.05 }}
+              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
+              whileHover={{ y: -3, scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Code className="w-5 h-5 text-blue-400" />
-              <span className="text-gray-700 dark:text-gray-200">React & Next.js</span>
+              <Code className="w-4 h-4 text-blue-400" />
+              <span className="text-sm" style={{ color: 'var(--text-color)' }}>React & Next.js</span>
             </motion.div>
             <motion.div 
-              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
-              whileHover={{ y: -5, scale: 1.05 }}
+              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
+              whileHover={{ y: -3, scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Palette className="w-5 h-5 text-purple-400" />
-              <span className="text-gray-700 dark:text-gray-200">UI/UX Design</span>
+              <Palette className="w-4 h-4 text-purple-400" />
+              <span className="text-sm" style={{ color: 'var(--text-color)' }}>UI/UX Design</span>
             </motion.div>
             <motion.div 
-              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
-              whileHover={{ y: -5, scale: 1.05 }}
+              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
+              whileHover={{ y: -3, scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Smartphone className="w-5 h-5 text-green-400" />
-              <span className="text-gray-700 dark:text-gray-200">Mobile Development</span>
+              <Smartphone className="w-4 h-4 text-green-400" />
+              <span className="text-sm" style={{ color: 'var(--text-color)' }}>Mobile Development</span>
             </motion.div>
           </motion.div>
           

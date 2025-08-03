@@ -32,6 +32,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
     
+    // 강제로 스타일 적용
+    if (theme === 'dark') {
+      root.style.colorScheme = 'dark';
+    } else {
+      root.style.colorScheme = 'light';
+    }
+    
     // 로컬 스토리지에 저장
     localStorage.setItem('theme', theme);
   }, [theme]);

@@ -89,7 +89,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <motion.div 
-            className="text-xl font-bold text-gray-900 dark:text-gray-100 cursor-pointer relative group"
+            className="text-xl font-bold text-gray-900 dark:text-gray-100 cursor-pointer relative group px-3 py-2 rounded-lg"
             whileHover={{ scale: 1.07 }}
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
