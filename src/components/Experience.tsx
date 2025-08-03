@@ -48,16 +48,16 @@ export default function Experience() {
               key={experience.title}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="bg-gradient-to-br from-gray-700/50 to-gray-600/50 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border border-gray-600/50 group"
+              transition={{ duration: 0.2, delay: index * 0.1 }}
+              className="bg-gradient-to-br from-gray-700/50 to-gray-600/50 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl border border-gray-600/50 group"
             >
               <div className="flex items-start space-x-4">
                 <motion.div 
                   className="flex-shrink-0"
                   whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white group-hover:from-blue-600 group-hover:via-purple-600 group-hover:to-pink-600 transition-all duration-300 shadow-lg">
                     {getIcon(experience.title)}
@@ -87,7 +87,7 @@ export default function Experience() {
                       >
                         <motion.div
                           whileHover={{ scale: 1.2, rotate: 5 }}
-                          transition={{ duration: 0.2 }}
+                          transition={{ duration: 0.15 }}
                         >
                           <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                         </motion.div>

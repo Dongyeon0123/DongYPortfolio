@@ -213,7 +213,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className={`bg-gradient-to-br ${feature.bgGradient} dark:${feature.bgGradient} backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border ${feature.borderColor} dark:${feature.borderColor}`}
+              className={`bg-gradient-to-br ${feature.bgGradient} backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border ${feature.borderColor}`}
             >
               <div className="flex items-center space-x-3 mb-4">
                 <motion.div 

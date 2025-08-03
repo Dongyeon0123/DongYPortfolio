@@ -110,7 +110,7 @@ export default function Skills() {
                       rotateY: 5,
                       z: 50
                     }}
-                    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
                     className="bg-gradient-to-br from-gray-700/50 to-gray-600/50 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl text-center cursor-pointer group border border-gray-600/50"
                   >
                     <motion.div 
@@ -120,14 +120,14 @@ export default function Skills() {
                         scale: 1.2,
                         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
                       }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
                     >
                       {skill.name.charAt(0)}
                     </motion.div>
                     <motion.p 
                       className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors duration-500 ease-out"
                       whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
                     >
                       {skill.name}
                     </motion.p>
@@ -152,7 +152,7 @@ export default function Skills() {
           <motion.div 
             className="bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white p-8 rounded-2xl shadow-xl border border-pink-500/30"
             whileHover={{ scale: 1.02, y: -5 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
             <h3 className="text-2xl font-bold mb-4">
               기술 스택 특징
@@ -161,9 +161,9 @@ export default function Skills() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2, delay: 0.8 }}
               >
                 <h4 className="font-semibold mb-2">Frontend</h4>
                 <p className="text-sm opacity-90">
@@ -173,9 +173,9 @@ export default function Skills() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2, delay: 1.0 }}
               >
                 <h4 className="font-semibold mb-2">Mobile</h4>
                 <p className="text-sm opacity-90">
@@ -185,9 +185,9 @@ export default function Skills() {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2, delay: 1.2 }}
               >
                 <h4 className="font-semibold mb-2">Tools</h4>
                 <p className="text-sm opacity-90">

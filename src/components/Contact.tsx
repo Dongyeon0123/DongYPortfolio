@@ -66,15 +66,15 @@ export default function Contact() {
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`flex items-center space-x-4 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${getContactColor(contact.platform)} text-white group border`}
+              className={`flex items-center space-x-4 p-6 rounded-xl shadow-lg hover:shadow-xl ${getContactColor(contact.platform)} text-white group border`}
               whileHover={{ 
                 scale: 1.05, 
                 y: -5,
                 rotateY: 5
               }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2, delay: index * 0.1 }}
             >
               <motion.div 
                 className="flex-shrink-0"
