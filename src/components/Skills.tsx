@@ -9,22 +9,37 @@ export default function Skills() {
       title: 'Main Skill Stack',
       category: 'frontend' as const,
       color: 'from-blue-500 to-cyan-500',
-      bgColor: 'bg-blue-500/20',
-      borderColor: 'border-blue-500/30'
+      bgColor: 'bg-gradient-to-br from-blue-900/30 to-cyan-900/30',
+      borderColor: 'border-blue-500/30',
+      cardBg: 'from-blue-700/50 to-blue-600/50',
+      cardBorder: 'border-blue-600/50'
+    },
+    {
+      title: 'Mobile Development',
+      category: 'mobile' as const,
+      color: 'from-purple-500 to-pink-500',
+      bgColor: 'bg-gradient-to-br from-purple-900/30 to-pink-900/30',
+      borderColor: 'border-purple-500/30',
+      cardBg: 'from-purple-700/50 to-purple-600/50',
+      cardBorder: 'border-purple-600/50'
     },
     {
       title: 'Tools & Collaboration',
       category: 'tools' as const,
       color: 'from-green-500 to-emerald-500',
-      bgColor: 'bg-green-500/20',
-      borderColor: 'border-green-500/30'
+      bgColor: 'bg-gradient-to-br from-green-900/30 to-emerald-900/30',
+      borderColor: 'border-green-500/30',
+      cardBg: 'from-green-700/50 to-green-600/50',
+      cardBorder: 'border-green-600/50'
     },
     {
       title: '학습 & 경험 기술',
       category: 'learning' as const,
       color: 'from-orange-500 to-red-500',
-      bgColor: 'bg-orange-500/20',
-      borderColor: 'border-orange-500/30'
+      bgColor: 'bg-gradient-to-br from-orange-900/30 to-red-900/30',
+      borderColor: 'border-orange-500/30',
+      cardBg: 'from-orange-700/50 to-orange-600/50',
+      cardBorder: 'border-orange-600/50'
     }
   ];
 
@@ -84,7 +99,7 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className={`mb-12 p-8 rounded-2xl backdrop-blur-sm border ${category.bgColor} ${category.borderColor}`}
           >
             <motion.h3 
               className="text-2xl font-bold text-white mb-6 text-center"
@@ -111,7 +126,7 @@ export default function Skills() {
                       z: 50
                     }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="bg-gradient-to-br from-gray-700/50 to-gray-600/50 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl text-center cursor-pointer group border border-gray-600/50"
+                    className={`bg-gradient-to-br ${category.cardBg} backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl text-center cursor-pointer group border ${category.cardBorder}`}
                   >
                     <motion.div 
                       className={`w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r ${getSkillColor(skill.name)} flex items-center justify-center text-white font-bold text-sm shadow-lg`}
