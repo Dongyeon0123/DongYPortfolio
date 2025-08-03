@@ -48,6 +48,7 @@ export default function Projects() {
   };
 
   const handleImageError = (projectId: string) => {
+    console.error(`Failed to load image for project: ${projectId}`);
     setImageErrors(prev => ({ ...prev, [projectId]: true }));
   };
 
@@ -96,8 +97,12 @@ export default function Projects() {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
                     onError={() => handleImageError(project.id)}
+                    onLoad={() => console.log(`Image loaded successfully: ${project.id}`)}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority
+                    priority={index < 3}
+                    quality={85}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxAAPwCdABmX/9k="
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full bg-gray-700/50">

@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Vercel 배포를 위한 설정
+    unoptimized: false,
+    // 정적 파일 최적화
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   // 컴파일 최적화
   compiler: {
@@ -27,6 +32,8 @@ const nextConfig: NextConfig = {
       return config;
     },
   }),
+  // 정적 파일 최적화
+  output: 'standalone',
 };
 
 export default nextConfig;
