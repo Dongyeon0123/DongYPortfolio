@@ -1,8 +1,9 @@
 'use client';
 
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Mail, Github, Instagram } from 'lucide-react';
+import { Mail, Github, Instagram, Sun, Moon } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function Header() {
   const [mounted, setMounted] = useState(false);
@@ -12,6 +13,7 @@ export default function Header() {
     damping: 30,
     restDelta: 0.001
   });
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -39,15 +41,9 @@ export default function Header() {
               ))}
             </nav>
             <div className="flex items-center space-x-4">
-              <a href="mailto:ldy1951123@gmail.com" className="p-2 text-gray-300 hover:text-red-400 transition-colors">
-                <Mail size={20} />
-              </a>
-              <a href="https://github.com/Dongyeon0123" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-300 hover:text-white transition-colors">
-                <Github size={20} />
-              </a>
-              <a href="https://www.instagram.com/dong.y____" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-300 hover:text-pink-400 transition-colors">
-                <Instagram size={20} />
-              </a>
+              <button className="p-2 text-gray-300 hover:text-yellow-400 transition-colors">
+                <Sun size={20} />
+              </button>
             </div>
           </div>
         </div>
@@ -165,6 +161,31 @@ export default function Header() {
           </nav>
           
           <div className="flex items-center space-x-4">
+            <motion.button
+              onClick={toggleTheme}
+              whileHover={{ 
+                scale: 1.15,
+                rotate: 180,
+                y: -3
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 text-gray-300 hover:text-yellow-400 transition-colors relative group rounded-lg"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              <motion.div
+                className="absolute inset-0 bg-yellow-400/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              />
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 to-orange-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              />
+            </motion.button>
             <motion.a
               href="mailto:ldy1951123@gmail.com"
               whileHover={{ 
