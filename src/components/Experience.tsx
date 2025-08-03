@@ -25,7 +25,10 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-800 dark:via-purple-900/20 dark:to-pink-900/20">
+    <section id="experience" className="py-20" style={{ 
+      background: 'var(--hero-bg)',
+      backgroundImage: 'var(--hero-gradient)'
+    }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,10 +37,10 @@ export default function Experience() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: 'var(--text-color)' }}>
             Experience & Growth
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-color)' }}>
             다양한 기술을 활용한 프로젝트 경험과 지속적인 성장 과정을 소개합니다.
           </p>
         </motion.div>

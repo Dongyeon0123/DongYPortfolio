@@ -53,7 +53,14 @@ export default function Header() {
 
   return (
     <motion.header 
-      className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-600/50 shadow-lg"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b shadow-lg"
+      style={{
+        backgroundColor: 'var(--header-bg)',
+        color: 'var(--foreground)',
+        borderColor: 'var(--header-border)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)'
+      }}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.22, ease: "easeInOut" }}
@@ -66,7 +73,10 @@ export default function Header() {
 
       {/* 배경 그라데이션 효과 */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5"
+        className="absolute inset-0 opacity-30"
+        style={{
+          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%)'
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, delay: 0.5 }}
@@ -74,13 +84,13 @@ export default function Header() {
 
       {/* 미묘한 파티클 효과 */}
       <motion.div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-20"
         animate={{
           background: [
-            'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)',
-            'radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.1) 0%, transparent 50%)',
-            'radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)',
-            'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)',
+            'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
           ]
         }}
         transition={{ duration: 8, repeat: Infinity }}
@@ -89,7 +99,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <motion.div 
-            className="text-xl font-bold text-gray-900 dark:text-gray-100 cursor-pointer relative group px-3 py-2 rounded-lg"
+            className="text-xl font-bold cursor-pointer relative group px-3 py-2 rounded-lg"
+            style={{ color: 'var(--text-color)' }}
             whileHover={{ scale: 1.07 }}
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -121,7 +132,8 @@ export default function Header() {
               <motion.a
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-300 transition-colors relative group font-medium px-3 py-2 rounded-lg cursor-pointer"
+                className="hover:text-blue-600 dark:hover:text-blue-300 transition-colors relative group font-medium px-3 py-2 rounded-lg cursor-pointer"
+                style={{ color: 'var(--text-color)' }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -3, scale: 1.07 }}
@@ -163,7 +175,8 @@ export default function Header() {
               onClick={toggleTheme}
               whileHover={{ scale: 1.15, rotate: 180, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-300 transition-colors relative group rounded-lg"
+              className="p-2 hover:text-yellow-600 dark:hover:text-yellow-300 transition-colors relative group rounded-lg"
+              style={{ color: 'var(--text-color)' }}
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.18, delay: 0.18, ease: "easeInOut" }}
@@ -184,7 +197,8 @@ export default function Header() {
               href="mailto:ldy1951123@gmail.com"
               whileHover={{ scale: 1.15, rotate: 5, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-300 transition-colors relative group rounded-lg"
+              className="p-2 hover:text-red-600 dark:hover:text-red-300 transition-colors relative group rounded-lg"
+              style={{ color: 'var(--text-color)' }}
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.18, delay: 0.20, ease: "easeInOut" }}
@@ -207,7 +221,8 @@ export default function Header() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, rotate: -5, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-colors relative group rounded-lg"
+              className="p-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors relative group rounded-lg"
+              style={{ color: 'var(--text-color)' }}
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.18, delay: 0.22, ease: "easeInOut" }}
@@ -230,7 +245,8 @@ export default function Header() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, rotate: 5, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-gray-700 dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-300 transition-colors relative group rounded-lg"
+              className="p-2 hover:text-pink-600 dark:hover:text-pink-300 transition-colors relative group rounded-lg"
+              style={{ color: 'var(--text-color)' }}
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.18, delay: 0.24, ease: "easeInOut" }}

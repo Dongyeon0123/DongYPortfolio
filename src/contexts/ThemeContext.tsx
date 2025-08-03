@@ -20,9 +20,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      // 시스템 설정 확인
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
+      // 기본값을 다크모드로 설정
+      setTheme('dark');
     }
   }, []);
 
@@ -31,13 +30,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = window.document.documentElement;
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
-    
-    // 강제로 스타일 적용
-    if (theme === 'dark') {
-      root.style.colorScheme = 'dark';
-    } else {
-      root.style.colorScheme = 'light';
-    }
     
     // 로컬 스토리지에 저장
     localStorage.setItem('theme', theme);

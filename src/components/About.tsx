@@ -49,7 +49,10 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20">
+    <section id="about" className="py-20" style={{ 
+      background: 'var(--hero-bg)',
+      backgroundImage: 'var(--hero-gradient)'
+    }}>
       {/* 떠다니는 동그란 애니메이션 요소들 */}
       <motion.div
         className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-r from-pink-500/15 to-purple-500/15 rounded-full blur-xl"
@@ -186,20 +189,20 @@ export default function About() {
             </p>
             <div className="grid grid-cols-2 gap-4">
               <motion.div 
-                className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 dark:from-blue-600/20 dark:to-purple-600/20 p-4 rounded-lg border border-blue-500/30 dark:border-blue-500/30 backdrop-blur-sm"
+                className="bg-gradient-to-r from-blue-600/40 to-purple-600/40 dark:from-blue-600/30 dark:to-purple-600/30 p-4 rounded-lg border border-blue-500/30 dark:border-blue-500/40 backdrop-blur-sm"
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <h4 className="font-semibold text-blue-700 dark:text-blue-400 mb-2">기술 스택</h4>
-                <p className="text-sm" style={{ color: 'var(--text-color)' }}>React, Next.js, TypeScript, Redux</p>
+                <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">기술 스택</h4>
+                <p className="text-sm font-medium" style={{ color: 'var(--text-color)' }}>React, Next.js, TypeScript, Redux</p>
               </motion.div>
               <motion.div 
-                className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 p-4 rounded-lg border border-purple-500/30 dark:border-purple-500/30 backdrop-blur-sm"
+                className="bg-gradient-to-r from-purple-600/40 to-pink-600/40 dark:from-purple-600/30 dark:to-pink-600/30 p-4 rounded-lg border border-purple-500/30 dark:border-purple-500/40 backdrop-blur-sm"
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <h4 className="font-semibold text-purple-700 dark:text-purple-400 mb-2">관심 분야</h4>
-                <p className="text-sm" style={{ color: 'var(--text-color)' }}>UI/UX, 애니메이션, 모바일 개발</p>
+                <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-2">관심 분야</h4>
+                <p className="text-sm font-medium" style={{ color: 'var(--text-color)' }}>UI/UX, 애니메이션, 모바일 개발</p>
               </motion.div>
             </div>
           </motion.div>
@@ -228,7 +231,7 @@ export default function About() {
                   {feature.title}
                 </h3>
               </div>
-              <p className="leading-relaxed" style={{ color: 'var(--text-color)' }}>
+              <p className="leading-relaxed font-medium" style={{ color: 'var(--text-color)' }}>
                 {feature.description}
               </p>
             </motion.div>
@@ -247,10 +250,10 @@ export default function About() {
             whileHover={{ scale: 1.02, y: -5 }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-2xl font-bold mb-4 text-white">
               개발 철학
             </h3>
-            <p className="text-lg leading-relaxed max-w-4xl mx-auto" style={{ color: 'var(--text-color)' }}>
+            <p className="text-lg leading-relaxed max-w-4xl mx-auto text-white/90 font-medium">
               &quot;사용자 경험을 최우선으로 생각하며, 깔끔하고 유지보수하기 쉬운 코드를 작성하는 것이 저의 목표입니다. 
               새로운 기술을 배우는 것을 즐기며, 항상 더 나은 솔루션을 찾기 위해 노력합니다.&quot;
             </p>

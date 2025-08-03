@@ -235,28 +235,28 @@ export default function Hero() {
             variants={itemVariants}
           >
             <motion.div 
-              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
-              whileHover={{ y: -3, scale: 1.05 }}
+              className="flex items-center space-x-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 dark:from-blue-600/30 dark:to-purple-600/30 backdrop-blur-md px-4 py-3 rounded-full shadow-lg border border-blue-300/50 dark:border-blue-400/50"
+              whileHover={{ y: -3, scale: 1.05, boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)" }}
               transition={{ duration: 0.3 }}
             >
-              <Code className="w-4 h-4 text-blue-400" />
-              <span className="text-sm" style={{ color: 'var(--text-color)' }}>React & Next.js</span>
+              <Code className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+              <span className="text-sm font-medium" style={{ color: 'var(--text-color)' }}>React & Next.js</span>
             </motion.div>
             <motion.div 
-              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
-              whileHover={{ y: -3, scale: 1.05 }}
+              className="flex items-center space-x-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 dark:from-purple-600/30 dark:to-pink-600/30 backdrop-blur-md px-4 py-3 rounded-full shadow-lg border border-purple-300/50 dark:border-purple-400/50"
+              whileHover={{ y: -3, scale: 1.05, boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)" }}
               transition={{ duration: 0.3 }}
             >
-              <Palette className="w-4 h-4 text-purple-400" />
-              <span className="text-sm" style={{ color: 'var(--text-color)' }}>UI/UX Design</span>
+              <Palette className="w-4 h-4 text-purple-500 dark:text-purple-400" />
+              <span className="text-sm font-medium" style={{ color: 'var(--text-color)' }}>UI/UX Design</span>
             </motion.div>
             <motion.div 
-              className="flex items-center space-x-2 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-600"
-              whileHover={{ y: -3, scale: 1.05 }}
+              className="flex items-center space-x-2 bg-gradient-to-r from-green-500/20 to-teal-500/20 dark:from-green-600/30 dark:to-teal-600/30 backdrop-blur-md px-4 py-3 rounded-full shadow-lg border border-green-300/50 dark:border-green-400/50"
+              whileHover={{ y: -3, scale: 1.05, boxShadow: "0 10px 25px rgba(34, 197, 94, 0.3)" }}
               transition={{ duration: 0.3 }}
             >
-              <Smartphone className="w-4 h-4 text-green-400" />
-              <span className="text-sm" style={{ color: 'var(--text-color)' }}>Mobile Development</span>
+              <Smartphone className="w-4 h-4 text-green-500 dark:text-green-400" />
+              <span className="text-sm font-medium" style={{ color: 'var(--text-color)' }}>Mobile Development</span>
             </motion.div>
           </motion.div>
           
