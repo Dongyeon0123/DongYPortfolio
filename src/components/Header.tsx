@@ -147,10 +147,31 @@ export default function Header() {
                     const headerHeight = 64; // h-16 = 64px
                     const elementPosition = targetElement.offsetTop - headerHeight;
                     
-                    window.scrollTo({
-                      top: elementPosition,
-                      behavior: 'smooth'
-                    });
+                    // 순수 JavaScript로 부드러운 스크롤 구현
+                    const smoothScroll = (targetPosition: number, duration: number = 800) => {
+                      const startPosition = window.pageYOffset;
+                      const distance = targetPosition - startPosition;
+                      let startTime: number | null = null;
+                      
+                      const animation = (currentTime: number) => {
+                        if (startTime === null) startTime = currentTime;
+                        const timeElapsed = currentTime - startTime;
+                        const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+                        window.scrollTo(0, run);
+                        if (timeElapsed < duration) requestAnimationFrame(animation);
+                      };
+                      
+                      const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
+                        t /= d / 2;
+                        if (t < 1) return c / 2 * t * t * t + b;
+                        t -= 2;
+                        return c / 2 * (t * t * t + 2) + b;
+                      };
+                      
+                      requestAnimationFrame(animation);
+                    };
+                    
+                    smoothScroll(elementPosition);
                   }
                 }}
               >
