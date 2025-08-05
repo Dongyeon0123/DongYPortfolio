@@ -244,7 +244,7 @@ export default function Projects() {
               >
                 <h4 className="font-semibold mb-2">백엔드 연동</h4>
                 <p className="text-sm opacity-90">
-                  Spring Boot와 Firebase를 활용한 풀스택 개발
+                  Spring Boot와 Firebase api 연동 경험 있음
                 </p>
               </motion.div>
             </div>
