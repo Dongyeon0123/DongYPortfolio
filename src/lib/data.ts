@@ -125,16 +125,6 @@ export const experiences: Experience[] = [
     technologies: ['React Native', 'Expo', 'FCM']
   },
   {
-    title: 'Firebase',
-    description: [
-      'Firestore 실시간 리스너를 활용한 채팅 시스템 및 프로필 데이터 동기화',
-      'Firebase Storage를 통한 이미지 업로드 및 파일 관리 시스템 구현',
-      'Firebase Authentication을 활용한 사용자 인증 및 권한 관리',
-      '실시간 데이터베이스 설계 및 쿼리 최적화를 통한 성능 향상'
-    ],
-    technologies: ['Firebase', 'Firestore', 'Authentication', 'Storage']
-  },
-  {
     title: 'TypeScript',
     description: [
       '타입 명세·제네릭·유틸리티 타입 적용을 통한 대규모 프로젝트의 에러 방지 및 코드 품질 개선',
