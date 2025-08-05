@@ -230,7 +230,10 @@ export default function Hero() {
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-color)' }}>
             사용자 경험을 중심으로 한 웹 애플리케이션 개발에<br></br>많은 열정을 가지고있는
             주니어 프론트엔드 개발자입니다 !<br></br><br></br>
-            깔끔하고 직관적인 인터페이스를 만드는 것을 좋아합니다.
+            깔끔하고 직관적인 인터페이스를 만드는 것을 좋아합니다.<br></br>
+            React의 컴포넌트 기반 구조를 매우 사랑하고,
+            상태관리 라이브러리인 Redux를 매우 사랑하며,
+            Next.js의 파일 시스템 기반 라우팅 기능을 매우 사랑하는 개발자입니다.
           </p>
           
           <motion.div 
