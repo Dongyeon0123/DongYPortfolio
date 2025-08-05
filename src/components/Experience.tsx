@@ -13,8 +13,6 @@ export default function Experience() {
         return <Code className="w-6 h-6" />;
       case 'React Native':
         return <Smartphone className="w-6 h-6" />;
-      case 'Firebase':
-        return <Database className="w-6 h-6" />;
       case 'TypeScript':
         return <Code className="w-6 h-6" />;
       case 'Redux':
