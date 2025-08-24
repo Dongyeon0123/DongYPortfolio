@@ -8,6 +8,7 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'TypeScript', 'Redux', 'Vercel'],
     period: '2025.07~',
     link: 'https://nallijaku.com',
+    github: 'https://github.com/Dongyeon0123/nalijaku',
     status: 'in-progress'
   },
   {
@@ -17,6 +18,7 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'TypeScript', 'Redux', 'Vercel'],
     period: '2025.06~',
     link: 'https://soundofmemory.io',
+    github: 'https://github.com/Dongyeon0123/SoundOfMemory',
     status: 'in-progress'
   },
   {
@@ -37,15 +39,7 @@ export const projects: Project[] = [
     github: 'https://github.com/Dongyeon0123/react-todolist',
     status: 'completed'
   },
-  {
-    id: 'youtube-api',
-    name: '📦 Youtube API 음악 플레이리스트',
-    description: '유튜브 API를 활용해 곡 CRUD·플레이리스트 관리 구현',
-    technologies: ['Java', 'Spring Boot'],
-    period: '2024.12',
-    github: 'https://github.com/Dongyeon0123/YouTube-API-Music',
-    status: 'completed'
-  },
+
   {
     id: 'drone-space',
     name: '💻 Drone Space',

@@ -41,7 +41,6 @@ export default function Projects() {
       'soundofmemory': '/SOM.jpg',
       'unimeet': '/UNIMEET.jpg',
       'react-todo': '/TODO.jpg',
-      'youtube-api': '/Youtube.jpg',
       'drone-space': '/DroneSpace.jpg'
     };
     return imageMap[projectId] || '/file.svg';
