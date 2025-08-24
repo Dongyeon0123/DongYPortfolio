@@ -116,7 +116,7 @@ export default function Skills() {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {skills
                 .filter(skill => skill.category === category.category)
-                .map((skill, index) => (
+                .map((skill) => (
                   <motion.div
                     key={skill.name}
                     initial={{ opacity: 0, scale: 0.8 }}

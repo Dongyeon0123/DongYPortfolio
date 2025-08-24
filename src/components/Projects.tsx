@@ -1,14 +1,15 @@
 'use client'; //
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Calendar, Code, Image as ImageIcon, X, Globe, Users, Target, Zap } from 'lucide-react';
+import { ExternalLink, Github, Calendar, Image as ImageIcon, X, Globe, Users, Target, Zap } from 'lucide-react';
 import { projects } from '@/lib/data';
+import { Project } from '@/types';
 import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Projects() {
   const [imageErrors, setImageErrors] = useState<{ [key: string]: boolean }>({});
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getStatusColor = (status: string) => {
@@ -53,7 +54,7 @@ export default function Projects() {
     setImageErrors(prev => ({ ...prev, [projectId]: true }));
   };
 
-  const openModal = (project: any) => {
+  const openModal = (project: Project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
@@ -64,7 +65,7 @@ export default function Projects() {
   };
 
   const getProjectFeatures = (projectId: string) => {
-    const featuresMap: { [key: string]: { icon: any; title: string; description: string }[] } = {
+    const featuresMap: { [key: string]: { icon: React.ComponentType<{ className?: string }>; title: string; description: string }[] } = {
       'nallijaku': [
         { icon: Globe, title: '드론 교육 플랫폼', description: '체계적인 드론 조종 교육 과정 제공' },
         { icon: Users, title: '커뮤니티', description: '드론 애호가들의 소통 공간' },
@@ -94,7 +95,7 @@ export default function Projects() {
     return featuresMap[projectId] || [];
   };
 
-  const renderTechStack = (techStack: any) => {
+  const renderTechStack = (techStack: Project['techStack']) => {
     if (!techStack) return null;
     
     return (
@@ -513,7 +514,7 @@ export default function Projects() {
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-4">개발 과정에서 겪은 문제점들과 해결 과정</h3>
                     <div className="space-y-4">
-                      {selectedProject.challenges.map((challenge: any, index: number) => (
+                      {selectedProject.challenges.map((challenge: NonNullable<Project['challenges']>[0], index: number) => (
                         <motion.div
                           key={index}
                           initial={{ opacity: 0, y: 20 }}
