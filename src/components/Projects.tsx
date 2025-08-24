@@ -1,13 +1,15 @@
 'use client'; //
 
-import { motion } from 'framer-motion';
-import { ExternalLink, Github, Calendar, Code, Image as ImageIcon } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Github, Calendar, Code, Image as ImageIcon, X, Globe, Users, Target, Zap } from 'lucide-react';
 import { projects } from '@/lib/data';
 import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Projects() {
   const [imageErrors, setImageErrors] = useState<{ [key: string]: boolean }>({});
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -51,6 +53,47 @@ export default function Projects() {
     setImageErrors(prev => ({ ...prev, [projectId]: true }));
   };
 
+  const openModal = (project: any) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
+  const getProjectFeatures = (projectId: string) => {
+    const featuresMap: { [key: string]: { icon: any; title: string; description: string }[] } = {
+      'nallijaku': [
+        { icon: Globe, title: '드론 교육 플랫폼', description: '체계적인 드론 조종 교육 과정 제공' },
+        { icon: Users, title: '커뮤니티', description: '드론 애호가들의 소통 공간' },
+        { icon: Target, title: '실습 환경', description: '가상 시뮬레이션을 통한 안전한 연습' }
+      ],
+      'soundofmemory': [
+        { icon: Zap, title: 'AI 개인화', description: '개인의 가치관과 말투를 학습하는 AI' },
+        { icon: Target, title: '자산 통합', description: '분산된 디지털 자산을 통합 관리' },
+        { icon: Users, title: '자동화', description: '대외 소통 자동화 시스템' }
+      ],
+      'unimeet': [
+        { icon: Users, title: '소셜 네트워킹', description: '대학생 대상 미팅 플랫폼' },
+        { icon: Zap, title: '실시간 매칭', description: '즉시 상대방을 찾아 연결' },
+        { icon: Target, title: '채팅 시스템', description: '안전하고 편리한 소통 도구' }
+      ],
+      'react-todo': [
+        { icon: Target, title: '할일 관리', description: '효율적인 일정 관리 시스템' },
+        { icon: Zap, title: '상태 관리', description: 'Redux를 활용한 상태 관리' },
+        { icon: Users, title: '사용자 경험', description: '직관적이고 반응성 좋은 UI' }
+      ],
+      'drone-space': [
+        { icon: Users, title: '커뮤니티', description: '드론 관련 정보 공유 공간' },
+        { icon: Target, title: '구인구직', description: '드론 전문가 매칭 서비스' },
+        { icon: Globe, title: '정보 플랫폼', description: '드론 기술 및 뉴스 제공' }
+      ]
+    };
+    return featuresMap[projectId] || [];
+  };
+
   return (
     <section id="projects" className="py-20" style={{ 
       background: 'var(--hero-bg)',
@@ -84,7 +127,8 @@ export default function Projects() {
                 duration: 0.8, 
                 delay: index * 0.1
               }}
-              className="bg-gradient-to-br from-gray-800/50 to-gray-700/50 backdrop-blur-sm border border-gray-600/50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 ease-out overflow-hidden group"
+              className="bg-gradient-to-br from-gray-800/50 to-gray-700/50 backdrop-blur-sm border border-gray-600/50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 ease-out overflow-hidden group cursor-pointer"
+              onClick={() => openModal(project)}
             >
               {/* 프로젝트 이미지 */}
               <motion.div
@@ -125,6 +169,11 @@ export default function Projects() {
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                 />
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                    클릭하여 자세히 보기
+                  </span>
+                </div>
               </motion.div>
 
               <div className="p-6">
@@ -169,6 +218,7 @@ export default function Projects() {
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <ExternalLink className="w-4 h-4" />
                       <span className="text-sm">사이트</span>
@@ -183,6 +233,7 @@ export default function Projects() {
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <Github className="w-4 h-4" />
                       <span className="text-sm">GitHub</span>
@@ -250,6 +301,145 @@ export default function Projects() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* 프로젝트 상세 모달 */}
+      <AnimatePresence>
+        {isModalOpen && selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0, y: 50 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.8, opacity: 0, y: 50 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl border border-gray-600/50 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* 모달 헤더 */}
+              <div className="relative p-6 border-b border-gray-600/50">
+                <button
+                  onClick={closeModal}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-gray-700/50 hover:bg-gray-600/50 transition-colors duration-200"
+                >
+                  <X className="w-5 h-5 text-gray-300" />
+                </button>
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-700/50">
+                    <Image
+                      src={getProjectImage(selectedProject.id)}
+                      alt={selectedProject.name}
+                      width={64}
+                      height={64}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold text-white mb-2">
+                      {selectedProject.name}
+                    </h2>
+                    <div className="flex items-center space-x-4">
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(selectedProject.status)}`}>
+                        {getStatusText(selectedProject.status)}
+                      </span>
+                      <span className="text-gray-400 text-sm">
+                        {selectedProject.period}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 모달 내용 */}
+              <div className="p-6">
+                {/* 프로젝트 설명 */}
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold text-white mb-3">프로젝트 개요</h3>
+                  <p className="text-gray-300 leading-relaxed text-lg">
+                    {selectedProject.description}
+                  </p>
+                </div>
+
+                {/* 프로젝트 특징 */}
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold text-white mb-4">주요 특징</h3>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {getProjectFeatures(selectedProject.id).map((feature, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                        className="bg-gray-800/50 rounded-lg p-4 border border-gray-600/30"
+                      >
+                        <div className="flex items-center space-x-3 mb-3">
+                          <div className="p-2 bg-blue-600/20 rounded-lg">
+                            <feature.icon className="w-5 h-5 text-blue-400" />
+                          </div>
+                          <h4 className="font-medium text-white">{feature.title}</h4>
+                        </div>
+                        <p className="text-gray-400 text-sm">{feature.description}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 사용 기술 */}
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold text-white mb-4">사용 기술</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {selectedProject.technologies.map((tech: string, index: number) => (
+                      <motion.span
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-300 rounded-lg font-medium border border-blue-500/30"
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 링크 버튼 */}
+                <div className="flex space-x-4">
+                  {selectedProject.link && (
+                    <motion.a
+                      href={selectedProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-all duration-300 ease-out border border-emerald-500/30 shadow-lg"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Globe className="w-5 h-5" />
+                      <span>사이트 방문</span>
+                    </motion.a>
+                  )}
+                  {selectedProject.github && (
+                    <motion.a
+                      href={selectedProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 px-6 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all duration-300 ease-out border border-gray-500/30 shadow-lg"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github className="w-5 h-5" />
+                      <span>GitHub 보기</span>
+                    </motion.a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 } 
