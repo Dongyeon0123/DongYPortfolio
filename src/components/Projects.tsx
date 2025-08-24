@@ -94,6 +94,75 @@ export default function Projects() {
     return featuresMap[projectId] || [];
   };
 
+  const renderTechStack = (techStack: any) => {
+    if (!techStack) return null;
+    
+    return (
+      <div className="space-y-4">
+        {techStack.frontend && (
+          <div>
+            <h5 className="text-sm font-medium text-blue-300 mb-2">Frontend</h5>
+            <div className="flex flex-wrap gap-2">
+              {techStack.frontend.map((tech: string, index: number) => (
+                <span key={index} className="px-3 py-1 bg-blue-600/20 text-blue-300 rounded-md text-sm border border-blue-500/30">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        {techStack.styling && (
+          <div>
+            <h5 className="text-sm font-medium text-purple-300 mb-2">Styling</h5>
+            <div className="flex flex-wrap gap-2">
+              {techStack.styling.map((tech: string, index: number) => (
+                <span key={index} className="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-md text-sm border border-purple-500/30">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        {techStack.backend && (
+          <div>
+            <h5 className="text-sm font-medium text-green-300 mb-2">Backend</h5>
+            <div className="flex flex-wrap gap-2">
+              {techStack.backend.map((tech: string, index: number) => (
+                <span key={index} className="px-3 py-1 bg-green-600/20 text-green-300 rounded-md text-sm border border-green-500/30">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        {techStack.ai && (
+          <div>
+            <h5 className="text-sm font-medium text-orange-300 mb-2">AI Integration</h5>
+            <div className="flex flex-wrap gap-2">
+              {techStack.ai.map((tech: string, index: number) => (
+                <span key={index} className="px-3 py-1 bg-orange-600/20 text-orange-300 rounded-md text-sm border border-orange-500/30">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        {techStack.deployment && (
+          <div>
+            <h5 className="text-sm font-medium text-pink-300 mb-2">Deployment</h5>
+            <div className="flex flex-wrap gap-2">
+              {techStack.deployment.map((tech: string, index: number) => (
+                <span key={index} className="px-3 py-1 bg-pink-600/20 text-pink-300 rounded-md text-sm border border-pink-500/30">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <section id="projects" className="py-20" style={{ 
       background: 'var(--hero-bg)',
@@ -355,59 +424,168 @@ export default function Projects() {
               </div>
 
               {/* 모달 내용 */}
-              <div className="p-6">
+              <div className="p-6 space-y-8">
                 {/* 프로젝트 설명 */}
-                <div className="mb-8">
+                <div>
                   <h3 className="text-lg font-semibold text-white mb-3">프로젝트 개요</h3>
                   <p className="text-gray-300 leading-relaxed text-lg">
-                    {selectedProject.description}
+                    {selectedProject.detailedDescription || selectedProject.description}
                   </p>
                 </div>
 
                 {/* 프로젝트 특징 */}
-                <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-white mb-4">주요 특징</h3>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {getProjectFeatures(selectedProject.id).map((feature, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="bg-gray-800/50 rounded-lg p-4 border border-gray-600/30"
-                      >
-                        <div className="flex items-center space-x-3 mb-3">
-                          <div className="p-2 bg-blue-600/20 rounded-lg">
-                            <feature.icon className="w-5 h-5 text-blue-400" />
-                          </div>
-                          <h4 className="font-medium text-white">{feature.title}</h4>
-                        </div>
-                        <p className="text-gray-400 text-sm">{feature.description}</p>
-                      </motion.div>
-                    ))}
+                {selectedProject.features && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-4">주요 기능</h3>
+                    <div className="space-y-3">
+                      {selectedProject.features.map((feature: string, index: number) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                          className="flex items-start space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-600/30"
+                        >
+                          <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-gray-300 text-sm leading-relaxed">{feature}</p>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
-                {/* 사용 기술 */}
-                <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-white mb-4">사용 기술</h3>
-                  <div className="flex flex-wrap gap-3">
-                    {selectedProject.technologies.map((tech: string, index: number) => (
-                      <motion.span
-                        key={index}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: index * 0.05 }}
-                        className="px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-300 rounded-lg font-medium border border-blue-500/30"
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
+                {/* 프로젝트 특징 (기본) */}
+                {!selectedProject.features && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-4">주요 특징</h3>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      {getProjectFeatures(selectedProject.id).map((feature, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                          className="bg-gray-800/50 rounded-lg p-4 border border-gray-600/30"
+                        >
+                          <div className="flex items-center space-x-3 mb-3">
+                            <div className="p-2 bg-blue-600/20 rounded-lg">
+                              <feature.icon className="w-5 h-5 text-blue-400" />
+                            </div>
+                            <h4 className="font-medium text-white">{feature.title}</h4>
+                          </div>
+                          <p className="text-gray-400 text-sm">{feature.description}</p>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
+
+                {/* 상세 기술 스택 */}
+                {selectedProject.techStack && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-4">기술 스택</h3>
+                    {renderTechStack(selectedProject.techStack)}
+                  </div>
+                )}
+
+                {/* 기본 사용 기술 */}
+                {!selectedProject.techStack && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-4">사용 기술</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {selectedProject.technologies.map((tech: string, index: number) => (
+                        <motion.span
+                          key={index}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: index * 0.05 }}
+                          className="px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-300 rounded-lg font-medium border border-blue-500/30"
+                        >
+                          {tech}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 개발 과정에서 겪은 문제점들과 해결 과정 */}
+                {selectedProject.challenges && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-4">개발 과정에서 겪은 문제점들과 해결 과정</h3>
+                    <div className="space-y-4">
+                      {selectedProject.challenges.map((challenge: any, index: number) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                          className="bg-gray-800/50 rounded-lg p-4 border border-gray-600/30"
+                        >
+                          <h4 className="font-medium text-white mb-3 text-lg">{challenge.title}</h4>
+                          <div className="space-y-2 text-sm">
+                            <div>
+                              <span className="text-red-400 font-medium">문제: </span>
+                              <span className="text-gray-300">{challenge.problem}</span>
+                            </div>
+                            <div>
+                              <span className="text-yellow-400 font-medium">원인: </span>
+                              <span className="text-gray-300">{challenge.cause}</span>
+                            </div>
+                            <div>
+                              <span className="text-green-400 font-medium">해결: </span>
+                              <span className="text-gray-300">{challenge.solution}</span>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 향후 개선 계획 */}
+                {selectedProject.futurePlans && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-4">향후 개선 계획</h3>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {selectedProject.futurePlans.map((plan: string, index: number) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: index * 0.05 }}
+                          className="flex items-center space-x-3 p-3 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-lg border border-purple-500/30"
+                        >
+                          <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                          <span className="text-gray-300 text-sm">{plan}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 보안 고려사항 */}
+                {selectedProject.security && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-4">보안 고려사항</h3>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {selectedProject.security.map((item: string, index: number) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: index * 0.05 }}
+                          className="flex items-center space-x-3 p-3 bg-gradient-to-r from-red-600/20 to-orange-600/20 rounded-lg border border-red-500/30"
+                        >
+                          <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                          <span className="text-gray-300 text-sm">{item}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* 링크 버튼 */}
-                <div className="flex space-x-4">
+                <div className="flex space-x-4 pt-4 border-t border-gray-600/30">
                   {selectedProject.link && (
                     <motion.a
                       href={selectedProject.link}

@@ -8,6 +8,25 @@ export interface Project {
   github?: string;
   image?: string;
   status: 'completed' | 'in-progress' | 'planned';
+  detailedDescription?: string;
+  features?: string[];
+  techStack?: {
+    frontend?: string[];
+    styling?: string[];
+    backend?: string[];
+    ai?: string[];
+    deployment?: string[];
+    hooks?: string[];
+    language?: string[];
+  };
+  challenges?: Array<{
+    title: string;
+    problem: string;
+    cause: string;
+    solution: string;
+  }>;
+  futurePlans?: string[];
+  security?: string[];
 }
 
 export interface Skill {
